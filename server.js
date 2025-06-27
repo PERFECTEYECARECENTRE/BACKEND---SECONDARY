@@ -26,8 +26,8 @@ let isDbConnected = false;
 
 app.use(express.json()); // Middleware to parse JSON request bodies
 app.use(express.static("public"));
-// app.use(cors({ origin: 'https://pecc-admin.netlify.app' }));
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({ origin: 'https://pecc-admin.netlify.app' }));
+// app.use(cors({ origin: 'http://localhost:5173' }));
 app.use(express.urlencoded({ extended: false }));
 
 const newDbString = process.env.MONGODB_NEWDB_STRING;
