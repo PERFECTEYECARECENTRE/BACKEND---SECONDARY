@@ -8,7 +8,7 @@ require('dotenv').config();
 // const newlensRoutes = require('./routes/newlensRoutes');
 // const oldlensRoutes = require('./routes/oldlensRoutes');
 const spectsSearchRoutes = require('./routes/spectsSearchRoutes');
-// const lensSearchRoutes = require('./routes/lensSearchRoutes');
+const lensSearchRoutes = require('./routes/lensSearchRoutes');
 // const datewiseSearchRoutes = require('./routes/datewiseSearchRoutes');
 // // const quoteRoutes = require('./routes/quoteRoutes');
 // const authentication = require('./routes/AuthenticationRoutes');
@@ -57,7 +57,7 @@ app.get('/', (req, res) => {
 // app.use('/api', newlensRoutes);
 // app.use('/api', oldlensRoutes);
 app.use('/api', spectsSearchRoutes);
-// app.use('/api', lensSearchRoutes);
+app.use('/api', lensSearchRoutes);
 // app.use('/api', datewiseSearchRoutes);
 // app.use('/api', authentication);
 // app.use('/api', frameRoutes);
