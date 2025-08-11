@@ -29,6 +29,7 @@ const lensSchemaNew = new mongoose.Schema({
     billingDate: { type: String, required: true },
     lastVisited: { type: String, required: true },
     comment: { type: String },
+    fav: { type: Boolean },
     database: { type: String, required: true },
     L_S_input: { type: String, required: true },
     Created: { type: Number, required: true }  //CREATED HERE IN SERVER ONLY

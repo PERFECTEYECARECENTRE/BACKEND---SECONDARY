@@ -28,6 +28,7 @@ const eyePrescriptionSchema = new mongoose.Schema({
     prodDetails: [entrySchema],
     billingDate: { type: String, required: true },
     comment: { type: String},
+    fav: { type: Boolean },
     database: { type: String, required: true },
     L_S_input: { type: String, required: true },
     Created: { type: Number, required: true }

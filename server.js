@@ -11,6 +11,7 @@ const spectsSearchRoutes = require('./routes/spectsSearchRoutes');
 const lensSearchRoutes = require('./routes/lensSearchRoutes');
 // const datewiseSearchRoutes = require('./routes/datewiseSearchRoutes');
 // // const quoteRoutes = require('./routes/quoteRoutes');
+const patientAIRoutes = require('./routes/patientAIRoutes');
 // const authentication = require('./routes/AuthenticationRoutes');
 // const frameRoutes = require('./routes/FrameRoutes');
 // const fetchProdDetailsRoutes = require('./routes/fetchProdDetailsRoutes');
@@ -51,7 +52,7 @@ app.get('/', (req, res) => {
   res.status(200).json({ message: 'Secondary Server is Running.' });
 });
 
-// // app.use('/api', quoteRoutes);
+app.use('/api', patientAIRoutes);
 // app.use('/api', newspectsRoutes);
 // app.use('/api', oldspectsRoutes);
 // app.use('/api', newlensRoutes);

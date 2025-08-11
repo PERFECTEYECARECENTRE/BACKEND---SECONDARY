@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const newlensModels = require('../models/newlensModels'); 
 const oldlensModels = require('../models/oldlensModels');
+const DeviceInfo = require('../models/DeviceInfo');
 
 router.get('/customers/search/lens', async (req, res) => {
     try {
@@ -20,6 +21,23 @@ router.get('/customers/search/lens', async (req, res) => {
     } catch (error) {
         res.send(error);
     }
+});
+
+router.get('/customers/search/metadata-lens', async (req, res) => {
+    const { dataID } = req.query;
+
+try {
+  const metadata = await DeviceInfo.find({dataID});
+  if (metadata) {
+    console.log('Document found:', metadata);
+    res.json(metadata);
+  } else {
+    console.log('No document found with that ID.');
+  }
+} catch (err) {
+  console.error('Error:', err);
+  res.send(err);
+}
 });
 
 module.exports = router;
