@@ -3,6 +3,7 @@ const router = express.Router();
 const newlensModels = require('../models/newlensModels'); 
 const oldlensModels = require('../models/oldlensModels');
 const DeviceInfo = require('../models/DeviceInfo');
+const cumLensEntry = require('../models/cumLensEntry');
 
 router.get('/customers/search/lens', async (req, res) => {
     try {
@@ -38,6 +39,31 @@ try {
   console.error('Error:', err);
   res.send(err);
 }
+});
+
+router.get('/customers/search/cumEP-lens', async (req, res) => {
+  const { UPID } = req.query;
+
+  try {
+    // Get all documents for this UPID, sorted by newest first
+    const cumEP = await cumLensEntry.find({ UPID }).sort({ _id: -1 });
+
+    if (cumEP.length > 5) {
+      // Slice to get the oldest entries beyond the first 5
+      const idsToDelete = cumEP.slice(5).map(doc => doc._id);
+
+      // Delete the extra (oldest) documents
+      await cumLensEntry.deleteMany({ _id: { $in: idsToDelete } });
+
+      console.log(`Deleted ${idsToDelete.length} old document(s).`);
+    }
+
+    // Return the latest up to 5 entries
+    res.json(cumEP.slice(0, 5));
+  } catch (err) {
+    console.error('Error:', err);
+    res.status(500).send(err);
+  }
 });
 
 module.exports = router;
