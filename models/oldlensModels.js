@@ -18,6 +18,7 @@ const eyePrescriptionSchema = new mongoose.Schema({
     UPID: { type: String },
     tempCreated: { type: String },
     name: { type: String, required: true },
+    sex: { type: String },
     address: { type: String },
     eyePrescription: [eyePrescriptionSchema],
     // lens: { type: String },

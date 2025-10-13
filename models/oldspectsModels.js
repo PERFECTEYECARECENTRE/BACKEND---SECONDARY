@@ -18,6 +18,7 @@ const eyePrescriptionSchema = new mongoose.Schema({
     serialNumber: { type: String, required: true }, 
     referenceNumber: { type: String }, //
     name: { type: String, required: true }, //
+    sex: { type: String }, //
     address: { type: String }, //
     phone: { type: String }, //
     eyePrescription: [eyePrescriptionSchema], //

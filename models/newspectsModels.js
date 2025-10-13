@@ -16,6 +16,7 @@ const entrySchema = new mongoose.Schema({
 const spectsSchemaNew = new mongoose.Schema({
     UPID: { type: String },
     name: { type: String, required: true },
+    sex: { type: String, required: true },
     phone1: { type: Number, required: true},
     phone2: { type: Number },
     address: { type: String, required: true },
